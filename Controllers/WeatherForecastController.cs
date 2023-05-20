@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using TspuWeb.Models;
-
-
+using TspuWeb.Repositories;
 
 namespace TspuWeb.Controllers
 {
