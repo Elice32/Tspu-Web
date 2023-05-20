@@ -11,63 +11,71 @@ namespace TspuWeb.Models
 
         public string Login { get; set; }
     }
-    public static class Repository
+
+    public interface IUserRepository
     {
-        private static List<User> _users = new List<User>();
-        private static int _nextId = 1;
-        public static List<User> Users
+        public List<User> GetData();
+        public User GetData(int id);
+        public void Add(User id);
+        public void Delete(int id);
+        public void Edit(User id);
+    }
+
+    public class UsersRepositoryInMemory : IUserRepository
+    {
+        private readonly MemoryProvider memoryProvider;
+
+        public UsersRepositoryInMemory(MemoryProvider memoryProvider)
         {
-            get
+            this.memoryProvider = memoryProvider;
+        }
+
+        public List<User> GetData()
+        {
+            return memoryProvider.Users;
+        }
+
+        public User GetData(int id)
+        {
+            return memoryProvider.Users.Find(user => user.Id == id);
+        }
+
+        public void Add(User user)
+        {
+            if (memoryProvider.Users.Count == 0)
             {
-                return _users;
+                user.Id = 1;
             }
-            set
+            else
             {
-                _users = value;
+                user.Id = memoryProvider.Users.Max(user => user.Id) + 1;
+            }
+            memoryProvider.Users.Add(user);
+        }
+
+        public void Delete(int id)
+        {
+            var user = GetData(id);
+            if (user != null)
+            {
+                memoryProvider.Users.Remove(user);
             }
         }
 
-        public static List<User> GetData()
+        public void Edit(User user)
         {
-            return _users;
-        }
+            var oldUser = GetData(user.Id);
 
-        public static User? GetData(int id)
-        {
-            foreach (User user in _users)
+            if (oldUser != null)
             {
-                if (user.Id == id)
-                {
-                    return user;
-                }
-            }
-            return null;
-        }
-
-        public static void Add(User user)
-        {
-            user.Id = _nextId;
-            _nextId++;
-            _users.Add(user);
-        }
-
-        public static void Delete(int id)
-        {
-            User userToDelete = GetData(id);
-            if (userToDelete != null)
-            {
-                _users.Remove(userToDelete);
+                oldUser.UserName = user.UserName;
+                oldUser.Login = user.Login;
             }
         }
+    }
 
-        public static void Edit(User user)
-        {
-            User userToEdit = GetData(user.Id);
-            if (userToEdit != null)
-            {
-                userToEdit.UserName = user.UserName;
-                userToEdit.Login = user.Login;
-            }
-        }
+    public class MemoryProvider
+    {
+        public List<User> Users { get; set; } = new List<User>();
     }
 }

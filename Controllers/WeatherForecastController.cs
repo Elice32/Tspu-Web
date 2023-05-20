@@ -2,40 +2,58 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using TspuWeb.Models;
 
+
+
 namespace TspuWeb.Controllers
 {
     [ApiController]
     [Route("api/users")]
-    public class UsersController : ControllerBase
+    public class UserController : ControllerBase
     {
+        private readonly IUserRepository _userRepository;
+
+        public UserController(IUserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }
 
         [HttpGet]
-        public List<User> Get()
+        public IActionResult GetUsers()
         {
-            return Repository.GetData();
+            var users = _userRepository.GetData();
+            return Ok(users);
         }
+
         [HttpGet("{id}")]
-        public User? Get(int id)
+        public IActionResult GetUser(int id)
         {
-            return Repository.GetData(id);
+            var user = _userRepository.GetData(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
         }
 
         [HttpPost]
-        public void Post([FromBody] User user)
+        public IActionResult AddUser([FromBody] User user)
         {
-            Repository.Add(user);
+            _userRepository.Add(user);
+            return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
 
-        [HttpPut("{id}")]
-        public void Put([FromBody] User user)
+        [HttpPut]
+        public IActionResult UpdateUser([FromBody] User user)
         {
-            Repository.Edit(user);
-        }
+            if (user == null || user.Id == 0)
+            {
+                return BadRequest();
+            }
 
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-            Repository.Delete(id);
+            _userRepository.Edit(user);
+            return NoContent();
         }
     }
 }
