@@ -18,7 +18,7 @@ namespace TspuWeb.Repositories
 
         public User GetData(int id)
         {
-            return memoryProvider.Users.Find(user => user.Id == id);
+            return memoryProvider.Users.FirstOrDefault(user => user.Id == id);
         }
 
         public void Add(User user)
