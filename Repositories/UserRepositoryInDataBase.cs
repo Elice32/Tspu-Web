@@ -12,32 +12,22 @@ namespace TspuWeb.Repositories
             this.dbContext = dbContext;
         }
 
-        public List<User> Add()
+        public void Add(User user)
         {
-            var usersInDataBase = dbContext.Users.ToList();
-            return usersInDataBase.Select(user => new User(user)).ToList();
-
-            //dbContext.Users.Add(user);
-
-        }
-        public User? Add(int id)
-        {
-            var userInDb = dbContext.Users.FirstOrDefault(user => user.Id == id);
-            if (userInDb == null)
-            {
-                return null;
-            }
-
-            return new User(userInDb);
-
-            //dbContext.Users.Add(user);
-
+            var dbUser = new DbUser(user);
+            dbContext.Users.Add(dbUser);
+            dbContext.SaveChanges();
         }
 
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
 
-
-
-
+        public void Edit(User id)
+        {
+            throw new NotImplementedException();
+        }
 
         public List<User> GetData()
         {
@@ -54,23 +44,6 @@ namespace TspuWeb.Repositories
             }
 
             return new User(userInDb);
-        }
-
-
-
-
-
-
-
-
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Edit(User id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

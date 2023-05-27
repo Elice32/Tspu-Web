@@ -9,7 +9,7 @@ namespace TspuWeb.Models
 
         public DbUser(User user)
         {
-            Id = user.Id;
+            Id = 0;
             Name = user.Name;
             Login = user.Login;
             Password = user.Password;
