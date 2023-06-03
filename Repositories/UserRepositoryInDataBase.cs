@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using TspuWeb.Models;
+﻿using TspuWeb.Models;
 
 namespace TspuWeb.Repositories
 {
@@ -12,30 +11,44 @@ namespace TspuWeb.Repositories
             this.dbContext = dbContext;
         }
 
-        public void Add(User user)
+        public void Add(DbUser user)
         {
-            var dbUser = new DbUser(user);
-            dbContext.Users.Add(dbUser);
+            dbContext.Users.Add(user);
+
             dbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var dbUser = GetData(id);
+            if (dbUser != null)
+            { 
+               dbContext.Users.Remove(dbUser);
+
+               dbContext.SaveChanges();
+
+            }
         }
 
-        public void Edit(User id)
+        public void Edit(DbUser user)
         {
-            throw new NotImplementedException();
+            var dbUser = GetData(user.Id);
+            if (dbUser != null)
+            {
+                dbUser.Name = user.Name;
+                dbUser.Login = user.Login;
+
+                dbContext.SaveChanges();
+            }
         }
 
-        public List<User> GetData()
+        public List<DbUser> GetData()
         {
             var usersInDataBase = dbContext.Users.ToList();
-            return usersInDataBase.Select(user => new User(user)).ToList();
+            return usersInDataBase;
         }
 
-        public User? GetData(int id)
+        public DbUser? GetData(int id)
         {
             var userInDb = dbContext.Users.FirstOrDefault(user => user.Id == id);
             if (userInDb == null)
@@ -43,7 +56,7 @@ namespace TspuWeb.Repositories
                 return null;
             }
 
-            return new User(userInDb);
+            return userInDb;
         }
     }
 }

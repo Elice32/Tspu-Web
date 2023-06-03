@@ -1,9 +1,10 @@
-﻿using TspuWeb.Models;
+﻿using TspuWeb.Contracts;
+using TspuWeb.Models;
 
 namespace TspuWeb.Repositories
 {
     public class MemoryProvider
     {
-        public List<User> Users { get; set; } = new List<User>();
+        public List<DbUser> Users { get; set; } = new List<DbUser>();
     }
 }

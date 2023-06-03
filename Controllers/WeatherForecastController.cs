@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using TspuWeb.Contracts;
 using TspuWeb.Models;
 using TspuWeb.Repositories;
 
@@ -20,27 +21,30 @@ namespace TspuWeb.Controllers
         public IActionResult GetUsers()
         {
             var users = _userRepository.GetData();
-            return Ok(users);
+            var usersContract = users.Select(dbUser => new User(dbUser)).ToList();
+            return Ok(usersContract);
         }
 
         [HttpGet("{id}")]
         public IActionResult GetUser(int id)
         {
-            var user = _userRepository.GetData(id);
+            var dbUser = _userRepository.GetData(id);
 
-            if (user == null)
+            if (dbUser == null)
             {
                 return NotFound();
             }
 
-            return Ok(user);
+            var userContract = new User(dbUser);
+            return Ok(userContract);
         }
 
         [HttpPost]
         public IActionResult AddUser([FromBody] User user)
         {
-            _userRepository.Add(user);
-            return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+            var dbUser = new DbUser(user);
+            _userRepository.Add(dbUser);
+            return Ok();
         }
 
         [HttpPut]
@@ -51,8 +55,9 @@ namespace TspuWeb.Controllers
                 return BadRequest();
             }
 
-            _userRepository.Edit(user);
-            return NoContent();
+            var dbUser = new DbUser(user);
+            _userRepository.Edit(dbUser);
+            return Ok();
         }
     }
 }

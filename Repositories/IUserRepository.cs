@@ -1,14 +1,15 @@
-﻿using TspuWeb.Models;
+﻿using TspuWeb.Contracts;
+using TspuWeb.Models;
 
 namespace TspuWeb.Repositories
 {
     public interface IUserRepository
     {
-        public List<User> GetData();
-        public User? GetData(int id);
-        public void Add(User user);
+        public List<DbUser> GetData();
+        public DbUser? GetData(int id);
+        public void Add(DbUser user);
         public void Delete(int id);
-        public void Edit(User id);
+        public void Edit(DbUser user);
 
     }
 }

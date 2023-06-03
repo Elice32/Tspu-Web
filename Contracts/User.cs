@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using TspuWeb.Models;
 
-namespace TspuWeb.Models
+namespace TspuWeb.Contracts
 {
     public class User
     {

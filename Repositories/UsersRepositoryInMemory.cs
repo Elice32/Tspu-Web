@@ -1,4 +1,5 @@
-﻿using TspuWeb.Models;
+﻿using TspuWeb.Contracts;
+using TspuWeb.Models;
 
 namespace TspuWeb.Repositories
 {
@@ -11,17 +12,17 @@ namespace TspuWeb.Repositories
             this.memoryProvider = memoryProvider;
         }
 
-        public List<User> GetData()
+        public List<DbUser> GetData()
         {
             return memoryProvider.Users;
         }
 
-        public User GetData(int id)
+        public DbUser GetData(int id)
         {
             return memoryProvider.Users.FirstOrDefault(user => user.Id == id);
         }
 
-        public void Add(User user)
+        public void Add(DbUser user)
         {
             if (memoryProvider.Users.Count == 0)
             {
@@ -43,13 +44,13 @@ namespace TspuWeb.Repositories
             }
         }
 
-        public void Edit(User user)
+        public void Edit(DbUser user)
         {
             var oldUser = GetData(user.Id);
 
             if (oldUser != null)
             {
-                oldUser.UserName = user.UserName;
+                oldUser.Name = user.Name;
                 oldUser.Login = user.Login;
             }
         }
