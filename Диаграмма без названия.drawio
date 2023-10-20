@@ -1,0 +1,108 @@
+<mxfile host="app.diagrams.net" modified="2023-10-20T10:49:41.507Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="DH3YepFh-BKCuZ0c43oo" version="22.0.5" type="github">
+  <diagram name="Page-1" id="9361dd3d-8414-5efd-6122-117bd74ce7a7">
+    <mxGraphModel dx="2314" dy="1995" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="826" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <object label="Студент" id="BIsx5rSYDtpPCg-pWCxZ-89">
+          <mxCell style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+            <mxGeometry x="-1560" y="-800" width="60" height="130" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="_FZ567E234hKml-eKeyB-5" value="Планирование учебного процесса" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1420" y="-880" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-8" value="Система составления расписания" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-1160" y="-910" width="70" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-10" value="Преподаватель" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-1090" y="-670" width="80" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-12" value="Директор ИПИТ" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-1580" y="-580" width="80" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-15" value="Учебные планы и нагрузка преподавателя" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1350" y="-530" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-18" value="Успеваемость студентов" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1370" y="-700" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-22" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="_FZ567E234hKml-eKeyB-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1490" y="-550" as="sourcePoint" />
+            <mxPoint x="-1250" y="-670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-23" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="_FZ567E234hKml-eKeyB-12" target="_FZ567E234hKml-eKeyB-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1300" y="-620" as="sourcePoint" />
+            <mxPoint x="-1250" y="-670" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-1400" y="-510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-24" value="" style="endArrow=none;html=1;rounded=0;exitX=1.025;exitY=0.375;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="_FZ567E234hKml-eKeyB-15" target="_FZ567E234hKml-eKeyB-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1340" y="-640" as="sourcePoint" />
+            <mxPoint x="-1110" y="-550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-25" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="_FZ567E234hKml-eKeyB-5" target="_FZ567E234hKml-eKeyB-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1320" y="-790" as="sourcePoint" />
+            <mxPoint x="-1250" y="-670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-26" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1240" y="-640" as="sourcePoint" />
+            <mxPoint x="-1100" y="-630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-27" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1490" y="-720" as="sourcePoint" />
+            <mxPoint x="-1380" y="-670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-29" value="" style="endArrow=none;html=1;rounded=0;exitX=0.992;exitY=0.388;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="_FZ567E234hKml-eKeyB-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1300" y="-620" as="sourcePoint" />
+            <mxPoint x="-1170" y="-870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-31" value="Получение сведений о студентах и группах" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1350" y="-380" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-32" value="Заместитель директора" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-1120" y="-390" width="60" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-33" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1130" y="-360" as="sourcePoint" />
+            <mxPoint x="-1290" y="-440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-34" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" target="_FZ567E234hKml-eKeyB-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1140" y="-380" as="sourcePoint" />
+            <mxPoint x="-1250" y="-670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-35" value="" style="endArrow=none;html=1;rounded=0;exitX=1.05;exitY=0.588;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="_FZ567E234hKml-eKeyB-31">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1300" y="-620" as="sourcePoint" />
+            <mxPoint x="-1110" y="-340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FZ567E234hKml-eKeyB-36" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1490" y="-510" as="sourcePoint" />
+            <mxPoint x="-1360" y="-350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
